@@ -5,7 +5,6 @@ module RailsMcpCodeSearch
   module Setup
     WRAPPER_DIR = File.join(Dir.home, ".local", "bin")
     WRAPPER_PATH = File.join(WRAPPER_DIR, "rails-mcp-code-search")
-    MCP_CONFIG_PATH = File.join(Dir.home, ".claude", ".mcp.json")
 
     class << self
       def run
@@ -14,7 +13,7 @@ module RailsMcpCodeSearch
         create_wrapper
         configure_claude_code
 
-        puts "\nDone! Restart Claude Code to start using semantic search."
+        puts "\nDone! Restart Claude Code in this project to start using semantic search."
       end
 
       private
@@ -67,11 +66,10 @@ module RailsMcpCodeSearch
       end
 
       def configure_claude_code
-        claude_dir = File.dirname(MCP_CONFIG_PATH)
-        FileUtils.mkdir_p claude_dir
+        mcp_config_path = File.join(Dir.pwd, ".mcp.json")
 
-        config = if File.exist?(MCP_CONFIG_PATH)
-          JSON.parse File.read(MCP_CONFIG_PATH)
+        config = if File.exist?(mcp_config_path)
+          JSON.parse File.read(mcp_config_path)
         else
           {}
         end
@@ -79,8 +77,8 @@ module RailsMcpCodeSearch
         config["mcpServers"] ||= {}
         config["mcpServers"]["code-search"] = { "command" => WRAPPER_PATH }
 
-        File.write MCP_CONFIG_PATH, JSON.pretty_generate(config) + "\n"
-        puts "Configured Claude Code: #{MCP_CONFIG_PATH}"
+        File.write mcp_config_path, JSON.pretty_generate(config) + "\n"
+        puts "Configured Claude Code: #{mcp_config_path}"
       end
     end
   end
