@@ -9,6 +9,7 @@ module RailsMcpCodeSearch
   autoload :Runtime, "rails_mcp_code_search/runtime"
   autoload :RubyParser, "rails_mcp_code_search/ruby_parser"
   autoload :Server, "rails_mcp_code_search/server"
+  autoload :Setup, "rails_mcp_code_search/setup"
   autoload :SlidingWindowParser, "rails_mcp_code_search/sliding_window_parser"
 
   module Embeddings
