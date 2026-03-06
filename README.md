@@ -37,10 +37,11 @@
 
 ```sh
 gem install rails_mcp_code_search
+cd your-project
 rails-mcp-code-search --setup
 ```
 
-Requires Ruby 4.0+. The setup command creates a version-independent wrapper script and configures Claude Code automatically. The first search downloads the embedding model (~80 MB) to `~/.cache/informers/`.
+Requires Ruby 4.0+. Run `--setup` inside each project you want to index. It creates a version-independent wrapper script (`~/.local/bin/`) and a per-project `.mcp.json` that configures Claude Code automatically. The first search downloads the embedding model (~80 MB) to `~/.cache/informers/`.
 
 ## Tools
 
