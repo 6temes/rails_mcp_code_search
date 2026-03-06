@@ -1,0 +1,15 @@
+*.gem
+*.rbc
+/.config
+/.yardoc
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/.bundle/
+/vendor/bundle
+Gemfile.lock
+.ruby-lsp/
+.claude/
+CLAUDE.md

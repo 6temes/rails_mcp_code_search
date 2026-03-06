@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require "rails_mcp_code_search"
+
+if ARGV.include?("--setup")
+  RailsMcpCodeSearch::Setup.run
+else
+  RailsMcpCodeSearch::Server.start
+end
