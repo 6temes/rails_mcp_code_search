@@ -37,23 +37,10 @@
 
 ```sh
 gem install rails_mcp_code_search
+rails-mcp-code-search --setup
 ```
 
-Requires Ruby 4.0+. The first run downloads the embedding model (~80 MB) to `~/.cache/informers/`.
-
-Add to `~/.claude/.mcp.json` (global) or your project's `.mcp.json`:
-
-```json
-{
-  "mcpServers": {
-    "code-search": {
-      "command": "rails-mcp-code-search"
-    }
-  }
-}
-```
-
-That's it. Claude Code launches the server automatically when you open a project.
+Requires Ruby 4.0+. The setup command creates a version-independent wrapper script and configures Claude Code automatically. The first search downloads the embedding model (~80 MB) to `~/.cache/informers/`.
 
 ## Tools
 
