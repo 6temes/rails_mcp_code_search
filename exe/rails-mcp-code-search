@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "rails_mcp_code_search"
+
+RailsMcpCodeSearch::Server.start
