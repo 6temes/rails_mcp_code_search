@@ -41,7 +41,7 @@ gem install rails_mcp_code_search
 
 Requires Ruby 4.0+. The first run downloads the embedding model (~80 MB) to `~/.cache/informers/`.
 
-Add to `~/.claude/settings.json`:
+Add to `~/.claude/.mcp.json` (global) or your project's `.mcp.json`:
 
 ```json
 {
