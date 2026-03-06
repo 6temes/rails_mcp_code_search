@@ -25,6 +25,22 @@ module RailsMcpCodeSearch
         wrapper = <<~BASH
           #!/bin/bash
           #{init_command}
+
+          # Auto-update once per day
+          UPDATE_STAMP="$HOME/.local/share/rails-mcp-code-search/.last_update_check"
+          UPDATE_INTERVAL=86400
+          mkdir -p "$(dirname "$UPDATE_STAMP")"
+          if [ -f "$UPDATE_STAMP" ]; then
+            last_check=$(cat "$UPDATE_STAMP")
+          else
+            last_check=0
+          fi
+          now=$(date +%s)
+          if [ $((now - last_check)) -gt $UPDATE_INTERVAL ]; then
+            gem install rails_mcp_code_search --no-document >/dev/null 2>&1
+            echo "$now" > "$UPDATE_STAMP"
+          fi
+
           exec rails-mcp-code-search "$@"
         BASH
 
