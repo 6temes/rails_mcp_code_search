@@ -27,7 +27,7 @@ jobs:
       # gem build reads the version from the gemspec (RAILS_MCP_CODE_SEARCH_VERSION),
       # bypassing bundler so the dev-pinned Gemfile.lock doesn't trip frozen mode.
       - name: Configure RubyGems credentials
-        uses: rubygems/configure-rubygems-credentials@bc6dd217f8a4f919d6835fcfefd470ef821f5c44 # v1.0.0
+        uses: rubygems/configure-rubygems-credentials@762a4b77c3300434bb57c7ce80b20e36231927aa # v2.0.0
 
       - name: Build and push gem
         env:
